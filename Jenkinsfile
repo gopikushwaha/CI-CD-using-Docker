@@ -7,6 +7,7 @@ tools
     }
 	environment{
 		dockerhub_passwd=credentials('dockerhub')
+		dockerhub_passwd='gopi69$@#'
 	}
  stages {
       stage('checkout') {
