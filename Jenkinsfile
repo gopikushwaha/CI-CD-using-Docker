@@ -33,22 +33,23 @@ pipeline {
           
             steps {
         withDockerRegistry([ credentialsId: "dockerHub", url: "" ]) {
-	  sh 'docker login -u="gopikushwaha" -p="gopi69$@#"'
+	  sh 'docker login -u gopikushwaha -p "gopi69$@#"'
           sh  'docker push gopikushwaha/simple_mvn_docker:latest'
         //  sh  'docker push nikhilnidhi/samplewebapp:$BUILD_NUMBER' 
         }
                   
           }
         } 
-      stage('Run Docker container on Jenkins Agent') {
-             
-            steps 
-			{
-                sh "docker run -d -p 8003:8080 nikhilnidhi/samplewebapp"
- 
-            }
-        }
  }}
+//       stage('Run Docker container on Jenkins Agent') {
+             
+//             steps 
+// 			{
+//                 sh "docker run -d -p 8003:8080 nikhilnidhi/samplewebapp"
+ 
+//             }
+//         }
+
 //  stage('Run Docker container on remote hosts') {
              
 //             steps {
