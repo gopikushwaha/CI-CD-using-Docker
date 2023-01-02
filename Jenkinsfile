@@ -1,10 +1,13 @@
 pipeline {
     agent any
 	
-	  tools
+tools
     {
        maven "maven"
     }
+	environment{
+		dockerhub_passwd=credentials('dockerhub')
+	}
  stages {
       stage('checkout') {
            steps {
@@ -36,7 +39,9 @@ pipeline {
 //  	  sh 'docker login -u gopikushwaha -p "gopi69$@#"'
 //           sh  'docker push gopikushwaha/simple_mvn_docker:latest'
 //         }
-              sh  'docker push gopikushwaha/simple_mvn_docker:latest'    
+	      sh 'echo $dockerhub_passwd'
+	      sh 'echo $dockerhub_passwd | docker login -u gopikushwaha --password-stdin'
+              sh 'docker push gopikushwaha/simple_mvn_docker:latest'    
           }
         } 
  }}
