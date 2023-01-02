@@ -32,12 +32,11 @@ pipeline {
   stage('Publish image to Docker Hub') {
           
             steps {
-		    withDockerRegistry([ credentialsId: "dockerhub", url: "https://index.docker.io/v1/" ]) {
-// 	  sh 'docker login -u gopikushwaha -p "gopi69$@#"'
-          sh  'docker push gopikushwaha/simple_mvn_docker:latest'
-        //  sh  'docker push nikhilnidhi/samplewebapp:$BUILD_NUMBER' 
-        }
-                  
+// 		    withDockerRegistry([ credentialsId: "dockerhub", url: "https://index.docker.io/v1/" ]) {
+//  	  sh 'docker login -u gopikushwaha -p "gopi69$@#"'
+//           sh  'docker push gopikushwaha/simple_mvn_docker:latest'
+//         }
+              sh  'docker push gopikushwaha/simple_mvn_docker:latest'    
           }
         } 
  }}
