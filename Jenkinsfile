@@ -19,18 +19,17 @@ pipeline {
                 sh 'mvn package'             
           }
         }
- }
- }
-//   stage('Docker Build and Tag') {
-//            steps {
+
+  stage('Docker Build and Tag') {
+           steps {
               
-//                 sh 'docker build -t samplewebapp:latest .' 
-//                 sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:latest'
-//                 //sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:$BUILD_NUMBER'
+                sh 'docker build -t simple_mvn_docker:latest .' 
+                sh 'docker tag simple_mvn_docker gopikushwaha/simple_mvn_docker:latest'
+                //sh 'docker tag simple_mvn_docker gopikushwaha/simple_mvn_docker:$BUILD_NUMBER'
                
-//           }
-//         }
-     
+          }
+        }
+ }}
 //   stage('Publish image to Docker Hub') {
           
 //             steps {
