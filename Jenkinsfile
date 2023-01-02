@@ -5,10 +5,9 @@ tools
     {
        maven "maven"
     }
-	environment{
-		dockerhub_passwd=credentials('dockerhub')
-		dockerhub_passwd='gopi69$@#'
-	}
+// 	environment{
+// 		dockerhub_passwd=credentials('dockerhub')
+// 	}
  stages {
       stage('checkout') {
            steps {
@@ -40,21 +39,20 @@ tools
 //  	  sh 'docker login -u gopikushwaha -p "gopi69$@#"'
 //           sh  'docker push gopikushwaha/simple_mvn_docker:latest'
 //         }
-	      sh 'echo $dockerhub_passwd'
-	      sh 'echo $dockerhub_passwd | docker login -u gopikushwaha --password-stdin'
+// 	      sh 'echo $dockerhub_passwd | docker login -u gopikushwaha --password-stdin'
               sh 'docker push gopikushwaha/simple_mvn_docker:latest'    
           }
         } 
- }}
-//       stage('Run Docker container on Jenkins Agent') {
-             
-//             steps 
-// 			{
-//                 sh "docker run -d -p 8003:8080 nikhilnidhi/samplewebapp"
  
-//             }
-//         }
-
+      stage('Run Docker container on Jenkins Agent') {
+             
+            steps 
+			{
+                sh "docker run -d -p 8003:8080 gopikushwaha/simple_mvn_docker"
+ 
+            }
+        }
+ }}
 //  stage('Run Docker container on remote hosts') {
              
 //             steps {
